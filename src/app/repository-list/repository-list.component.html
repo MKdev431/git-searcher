@@ -1,0 +1,18 @@
+<h1>Repository Search App</h1>
+<mat-form-field appearance="fill" action="" class="search-form">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Type repository name" [(ngModel)]="name" name="name" />
+  </div>
+</mat-form-field>
+<button (click)="getRepositoriesByName()" mat-raised-button color="primary">
+  Search
+</button>
+<div *ngIf="repositories?.length; else noRepos">
+  <div *ngFor="let repo of repositories" (click)="goToDetails(repo.id)" class="item">
+    <mat-card (click)="goToDetails(repo.id)">{{ repo.name }}</mat-card>
+  </div>
+</div>
+
+<ng-template #noRepos>
+  <h1 *ngIf="searchFinished$ | async">No matches found...</h1>
+</ng-template>

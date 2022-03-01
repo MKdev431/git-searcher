@@ -1,0 +1,11 @@
+.header {
+  margin: 16px 16px 64px 16px;
+}
+
+.item {
+  margin: 16px;
+}
+
+img {
+  max-width: 250px;
+}

@@ -1,0 +1,18 @@
+<h1 class="header">Repository details</h1>
+<div *ngIf="repositoryDetails$ | async as repositoryDetails" class="item">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ repositoryDetails.name }}</mat-card-title>
+      <mat-card-subtitle>{{ repositoryDetails.owner.login }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image [src]="repositoryDetails.owner.avatar_url" />
+      <p>
+        {{ repositoryDetails.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="backToList()" mat-button>Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
